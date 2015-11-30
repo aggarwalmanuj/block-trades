@@ -1,0 +1,42 @@
+﻿
+
+
+<UserControl x:Class="Spider.Invest.Sys.BlockTrades.Modules.BlockTradeViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:viblendEditors="clr-namespace:VIBlend.WPF.Controls;assembly=VIBlend.WPF.Editors"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="3" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="160"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="110"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Symbol:" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" FontSize="9"/>
+        <ComboBox  x:Name="ComboBoxFavSymbols"  Grid.Row="0" Grid.Column="1"  Height="25" Width="150"/>
+       
+        <Label Content="From Date:" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="0" Grid.Column="2" FontSize="9"/>
+        <viblendEditors:DateTimePicker  x:Name="DateTimeFrom"  FontSize="9"    Grid.Row="0"   Grid.Column="3"  Margin="0,0,5,0" DefaultDateTimeFormat="LongDatePattern" Width="250"/>
+
+        <Label Content="To Date:" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" FontSize="9"/>
+        <viblendEditors:DateTimePicker  x:Name="DateTimeTo"  FontSize="9"    Grid.Row="2"   Grid.Column="3"  Margin="0,0,5,0" DefaultDateTimeFormat="LongDatePattern" Width="250" />
+
+        <Label Content="Symbol:" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="0" Grid.Column="4" FontSize="9"/>
+        <TextBox Grid.Column="5" Height="25" FontSize="9" HorizontalAlignment="Left" Width="100" TextAlignment="Left" Margin="0,0,5,0"/>
+
+        <Button x:Name="ButtonGo" Height="25" Content="Go" Margin="2,0,0,0" Cursor="Hand"  Width="35" Grid.Column="6" HorizontalAlignment="Left" />
+    </Grid>
+</UserControl>

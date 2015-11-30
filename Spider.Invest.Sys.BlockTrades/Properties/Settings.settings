@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Spider.Invest.Sys.BlockTrades.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FromDate" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2014-10-01</Value>
+    </Setting>
+    <Setting Name="ToDate" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2014-10-17</Value>
+    </Setting>
+    <Setting Name="FavSymbol" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SPY</Value>
+    </Setting>
+    <Setting Name="Symbol" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TwitterAccessToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)">358333297-G3JbJs6MhtVzklY8TOJrriQGaFTGtL5USBr2lv1f</Value>
+    </Setting>
+    <Setting Name="TwitterAccessTokenSecret" Type="System.String" Scope="User">
+      <Value Profile="(Default)">iJHR0If6gxgCsB18FClG72z9P3F9pYOPHZSh5O8jVu6tt</Value>
+    </Setting>
+    <Setting Name="TwitterConsumerKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tTvS4oGgZPzj1QqsMVSR6BVVZ</Value>
+    </Setting>
+    <Setting Name="TiwtterConsumerSecret" Type="System.String" Scope="User">
+      <Value Profile="(Default)">eIhPqpgDnjlUKk6pDRQAMkMaga8TOfcKk7h2Dk42gCFMDTZzc7</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

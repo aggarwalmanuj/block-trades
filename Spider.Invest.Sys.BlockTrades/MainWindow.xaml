@@ -1,0 +1,133 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viblendEditors="clr-namespace:VIBlend.WPF.Controls;assembly=VIBlend.WPF.Editors"
+        x:Class="Spider.Invest.Sys.BlockTrades.MainWindow"
+        Title="Spider Block Trade Analysis" Height="700" Width="1200" WindowState="Normal"  Loaded="Window_Loaded" Closing="Window_Closing" WindowStyle="ToolWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Margin="0,2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="3" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="160"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="110"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Symbol:" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" FontSize="9"/>
+            <ComboBox  x:Name="ComboBoxFavSymbols"  Grid.Row="0" Grid.Column="1"  Height="25" Width="150"/>
+
+            <Label Content="From Date:" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="0" Grid.Column="2" FontSize="9"/>
+            <viblendEditors:DateTimePicker  x:Name="DateTimeFrom"     Grid.Row="0"   Grid.Column="3"  Margin="0,0,5,0" DefaultDateTimeFormat="LongDatePattern" Width="250"/>
+
+            <Label Content="To Date:" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" FontSize="9"/>
+            <viblendEditors:DateTimePicker  x:Name="DateTimeTo"    Grid.Row="2"   Grid.Column="3"  Margin="0,0,5,0" DefaultDateTimeFormat="LongDatePattern" Width="250" />
+
+            <Label Content="Symbol:" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="0" Grid.Column="4" FontSize="9"/>
+            <TextBox Name="TextBoxSymbol" Grid.Column="5" Height="25"  HorizontalAlignment="Left" Width="100" TextAlignment="Left" Margin="0,0,5,0"/>
+
+            <Button x:Name="ButtonGo" Height="25" Content="Go" Margin="2,0,0,0" Cursor="Hand"  Width="35" Grid.Column="6" HorizontalAlignment="Left" Click="ButtonGo_Click" IsDefault="True" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <GridSplitter Width="3" Background="DarkGray" Grid.RowSpan="3" />
+            <Image x:Name="ImageChart" Stretch="Fill"/>
+            <TabControl Grid.Column="1">
+                <TabItem Header="Amount">
+                    <DataGrid Name="DataGridBlockTrades" Grid.Column="1" AutoGenerateColumns="False" AlternatingRowBackground="Silver">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=Price, StringFormat=C}" ClipboardContentBinding="{x:Null}" Header="Price" IsReadOnly="True" MinWidth="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=TotalAmount, StringFormat=C}" ClipboardContentBinding="{x:Null}" Header="Total Amount" IsReadOnly="True" MinWidth="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=TotalShares, StringFormat={}{0:N0}}" ClipboardContentBinding="{x:Null}" Header="Total Shares" IsReadOnly="True" MinWidth="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=TotalTrades}" ClipboardContentBinding="{x:Null}" Header="Trades" IsReadOnly="True" MinWidth="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Date">
+                    <DataGrid Name="DataGridBlockTradesByDate" AutoGenerateColumns="False" AlternatingRowBackground="Silver">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=TradeDate, StringFormat=D}" ClipboardContentBinding="{x:Null}" Header="Trade Date" IsReadOnly="True" MinWidth="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Price, StringFormat=C}" ClipboardContentBinding="{x:Null}" Header="Price" IsReadOnly="True" MinWidth="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=TotalAmount, StringFormat=C}" ClipboardContentBinding="{x:Null}" Header="Total Amount" IsReadOnly="True" MinWidth="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=TotalShares, StringFormat={}{0:N0}}" ClipboardContentBinding="{x:Null}" Header="Total Shares" IsReadOnly="True" MinWidth="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=TotalTrades}" ClipboardContentBinding="{x:Null}" Header="Trades" IsReadOnly="True" MinWidth="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+            
+        </Grid>
+        
+    </Grid>
+</Window>
